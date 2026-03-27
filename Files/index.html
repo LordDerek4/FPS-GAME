@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>COMBAT ZONE — 6v6 Team Deathmatch</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- MAIN MENU -->
+  <div id="menu">
+    <div id="menu-bg"></div>
+    <div id="menu-content">
+      <div id="menu-title">
+        <span class="title-combat">COMBAT</span>
+        <span class="title-zone">ZONE</span>
+      </div>
+      <div id="menu-subtitle">6v6 TEAM DEATHMATCH</div>
+      <div id="menu-divider"></div>
+      <button id="btn-play" onclick="startGame()">DEPLOY</button>
+      <div id="menu-controls">
+        <div class="ctrl-row"><span class="ctrl-key">WASD</span><span class="ctrl-desc">Move</span></div>
+        <div class="ctrl-row"><span class="ctrl-key">MOUSE</span><span class="ctrl-desc">Look</span></div>
+        <div class="ctrl-row"><span class="ctrl-key">LMB</span><span class="ctrl-desc">Shoot</span></div>
+        <div class="ctrl-row"><span class="ctrl-key">R</span><span class="ctrl-desc">Reload</span></div>
+        <div class="ctrl-row"><span class="ctrl-key">SHIFT</span><span class="ctrl-desc">Sprint</span></div>
+        <div class="ctrl-row"><span class="ctrl-key">SPACE</span><span class="ctrl-desc">Jump</span></div>
+        <div class="ctrl-row"><span class="ctrl-key">1/2/3</span><span class="ctrl-desc">Weapons</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HUD -->
+  <div id="hud" class="hidden">
+
+    <!-- Crosshair -->
+    <div id="crosshair">
+      <div class="ch-line ch-top"></div>
+      <div class="ch-line ch-bottom"></div>
+      <div class="ch-line ch-left"></div>
+      <div class="ch-line ch-right"></div>
+      <div class="ch-dot"></div>
+    </div>
+
+    <!-- Team Scores -->
+    <div id="scoreboard">
+      <div id="score-alpha">
+        <div class="team-label alpha-label">▲ ALPHA</div>
+        <div class="team-score" id="score-alpha-val">0</div>
+        <div class="score-bar-wrap"><div class="score-bar alpha-bar" id="bar-alpha"></div></div>
+      </div>
+      <div id="score-divider">/ 100</div>
+      <div id="score-bravo">
+        <div class="team-label bravo-label">BRAVO ▼</div>
+        <div class="team-score" id="score-bravo-val">0</div>
+        <div class="score-bar-wrap"><div class="score-bar bravo-bar" id="bar-bravo"></div></div>
+      </div>
+    </div>
+
+    <!-- Health -->
+    <div id="health-wrap">
+      <div id="health-icon">♥</div>
+      <div id="health-bar-bg">
+        <div id="health-bar"></div>
+      </div>
+      <div id="health-val">100</div>
+    </div>
+
+    <!-- Weapon / Ammo -->
+    <div id="weapon-hud">
+      <div id="weapon-name">SCAR-H</div>
+      <div id="ammo-display">
+        <span id="ammo-current">30</span>
+        <span id="ammo-sep">/</span>
+        <span id="ammo-reserve">90</span>
+      </div>
+      <div id="weapon-slots">
+        <div class="wslot active" id="wslot-1">1 SCAR</div>
+        <div class="wslot" id="wslot-2">2 MP7</div>
+        <div class="wslot" id="wslot-3">3 DEAGLE</div>
+      </div>
+    </div>
+
+    <!-- Kill feed -->
+    <div id="killfeed"></div>
+
+    <!-- Hit marker -->
+    <div id="hitmarker" class="hidden">✕</div>
+
+    <!-- Reload indicator -->
+    <div id="reload-indicator" class="hidden">RELOADING...</div>
+
+    <!-- Death screen -->
+    <div id="death-screen" class="hidden">
+      <div id="death-text">YOU WERE ELIMINATED</div>
+      <div id="respawn-text">Respawning...</div>
+    </div>
+
+    <!-- Win screen -->
+    <div id="win-screen" class="hidden">
+      <div id="win-team"></div>
+      <div id="win-sub">VICTORY</div>
+      <button onclick="restartGame()">PLAY AGAIN</button>
+    </div>
+
+    <!-- Minimap -->
+    <canvas id="minimap" width="140" height="140"></canvas>
+
+  </div>
+
+  <!-- Game canvas -->
+  <canvas id="game-canvas"></canvas>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
